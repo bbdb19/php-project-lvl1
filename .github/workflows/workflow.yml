@@ -25,6 +25,10 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
+      # Install project
+      - name: Install
+        run: make install
+
       # Run linter
       - name: Run linter
         run: make lint
