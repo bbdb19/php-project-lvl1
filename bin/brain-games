@@ -3,6 +3,5 @@
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-$cli = new Brain\Games\Cli();
-
+$cli = new Brain\Cli();
 $cli->welcome();

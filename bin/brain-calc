@@ -3,5 +3,5 @@
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-$even = new Brain\Games\Even();
-$even->play();
+$calc = new Brain\Games\Calc();
+$calc->play();

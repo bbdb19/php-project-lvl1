@@ -7,12 +7,14 @@
     },
     "autoload": {
         "psr-4": {
-            "Brain\\Games\\": "src"
+            "Brain\\": "src",
+            "Brain\\Games\\": "src\\Games"
         }
     },
     "bin": [
         "bin/brain-games",
-        "bin/brain-even"
+        "bin/brain-even",
+        "bin/brain-calc"
     ],
     "require-dev": {
         "squizlabs/php_codesniffer": "^3.6"
