@@ -2,9 +2,10 @@
 
 namespace Brain\Games;
 
+use Brain\Engine as Engine;
+
 use function cli\line;
 use function cli\prompt;
-use Brain\Engine as Engine;
 
 class Even
 {
