@@ -6,10 +6,15 @@
         "wp-cli/php-cli-tools": "^0.11.12"
     },
     "autoload": {
-        "psr-4": {
-            "Brain\\": "src",
-            "Brain\\Games\\": "src\\Games"
-        }
+        "files": [
+            "src/Cli.php",
+            "src/Engine.php",
+            "src/Games/Even.php",
+            "src/Games/Calc.php",
+            "src/Games/Gcd.php",
+            "src/Games/Progression.php",
+            "src/Games/Prime.php"
+        ]
     },
     "bin": [
         "bin/brain-games",

@@ -1,13 +1,6 @@
 <?php
 
-namespace Brain;
-
-class Engine
+function startEngine(): string
 {
-    public function start(): string
-    {
-        $cli = new Cli();
-        $name = $cli->welcome();
-        return $name;
-    }
+    return welcome();
 }

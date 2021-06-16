@@ -3,5 +3,4 @@
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-$cli = new Brain\Cli();
-$cli->welcome();
+welcome();

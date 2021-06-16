@@ -1,60 +1,52 @@
 <?php
 
-namespace Brain\Games;
-
-use Brain\Engine as Engine;
-
 use function cli\line;
 use function cli\prompt;
 
-class Calc
+function playCalc()
 {
-    public function play()
-    {
-        $engine = new Engine();
-        $name = $engine->start();
+    $name = startEngine();
 
-        $on = true;
-        $answer = '';
-        $correct_answer = '';
-        $counter = 0;
-        $operators = ['+', '-', '*'];
+    $on = true;
+    $answer = '';
+    $correct_answer = '';
+    $counter = 0;
+    $operators = ['+', '-', '*'];
 
-        line('What is the result of the expression?');
-        while ($on) {
-            $a = rand(0, 100);
-            $b = rand(0, 100);
-            $o = $operators[rand(0, 100) % 3];
-            switch ($o) {
-                case '+':
-                    $correct_answer = $a + $b;
-                    break;
-                case '-':
-                    $correct_answer = $a - $b;
-                    break;
-                case '*':
-                    $correct_answer = $a * $b;
-                    break;
-            }
-            line('Question: ' . $a . ' ' . $o . ' ' . $b);
-            $answer = prompt('Your answer: ');
-            if ($correct_answer != $answer) {
-                $on = false;
+    line('What is the result of the expression?');
+    while ($on) {
+        $a = rand(0, 100);
+        $b = rand(0, 100);
+        $o = $operators[rand(0, 100) % 3];
+        switch ($o) {
+            case '+':
+                $correct_answer = $a + $b;
                 break;
-            } else {
-                line('Correct!');
-                $counter++;
-            }
-
-            if ($counter === 3) {
-                line('Congratulations, ' . $name . '!');
+            case '-':
+                $correct_answer = $a - $b;
                 break;
-            }
+            case '*':
+                $correct_answer = $a * $b;
+                break;
+        }
+        line('Question: ' . $a . ' ' . $o . ' ' . $b);
+        $answer = prompt('Your answer: ');
+        if ($correct_answer != $answer) {
+            $on = false;
+            break;
+        } else {
+            line('Correct!');
+            $counter++;
         }
 
-        if (!$on) {
-            line($answer . ' is wrong answer ;(. Correct answer was ' . $correct_answer);
-            line('Let\'s try again, ' . $name . '!');
+        if ($counter === 3) {
+            line('Congratulations, ' . $name . '!');
+            break;
         }
+    }
+
+    if (!$on) {
+        line($answer . ' is wrong answer ;(. Correct answer was ' . $correct_answer);
+        line('Let\'s try again, ' . $name . '!');
     }
 }
