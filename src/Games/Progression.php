@@ -22,7 +22,7 @@ class Progression
         line('What number is missing in the progression?');
         while ($on) {
             $array = $this->getProgressionArray();
-            $missingIndex = rand(0, count($array)-1);
+            $missingIndex = rand(0, count($array) - 1);
             $correct_answer = $array[$missingIndex];
             line('Question: ' . $this->arrayToQuestionString($array, $missingIndex));
             $answer = prompt('Your answer: ');
@@ -67,7 +67,6 @@ class Progression
             } else {
                 $str .= $arr[$i] . ' ';
             }
-            
         }
         return $str;
     }
