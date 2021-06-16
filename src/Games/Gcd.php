@@ -3,7 +3,7 @@
 use function cli\line;
 use function cli\prompt;
 
-function playGcd()
+function playGcd(): void
 {
     $name = startEngine();
 
