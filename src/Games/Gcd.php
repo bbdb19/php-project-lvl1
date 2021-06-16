@@ -23,7 +23,7 @@ class Gcd
         while ($on) {
             $a = rand(0, 100);
             $b = rand(0, 100);
-            $correct_answer = gmp_gcd($a, $b);
+            $correct_answer = $this->getGcd($a, $b);
             line('Question: ' . $a . ' ' . $b);
             $answer = prompt('Your answer: ');
             if ($correct_answer != $answer) {
@@ -44,5 +44,22 @@ class Gcd
             line($answer . ' is wrong answer ;(. Correct answer was ' . $correct_answer);
             line('Let\'s try again, ' . $name . '!');
         }
+    }
+
+    private function getGcd(int $a, int $b): int
+    {
+        if ($a > $b) {
+            $tmp = $a;
+            $a = $b;
+            $b = $tmp;
+        }
+
+        for ($i = 1; $i <= $a; $i++) {
+            if ($a % $i == 0 && $b % $i == 0) {
+                $gcd = $i;
+            }
+        }
+
+        return $gcd;
     }
 }
