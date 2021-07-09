@@ -5,35 +5,20 @@ use function cli\prompt;
 
 function playEven(): void
 {
-    $name = startEngine();
+    $rules = 'Answer "yes" if the number is even, otherwise answer "no".';
+    $questions = array();
+    $answers = array();
 
-    $on = true;
-    $answer = '';
-    $correct_answer = '';
-    $counter = 0;
-
-    line('Answer "yes" if the number is even, otherwise answer "no".');
-    while ($on) {
-        $number = rand(0, 100);
-        $correct_answer = $number % 2 == 0 ? "yes" : "no";
-        line('Question: ' . $number);
-        $answer = prompt('Your answer: ');
-        if ($correct_answer != $answer) {
-            $on = false;
-            break;
-        } else {
-            line('Correct!');
-            $counter++;
-        }
-
-        if ($counter === 3) {
-            line('Congratulations, ' . $name . '!');
-            break;
-        }
+    for ($i = 0; $i < 3; $i++) {
+        $question = rand(0, 100);
+        array_push($questions, $question);
+        array_push($answers, isEven($question) ? "yes" : "no");
     }
 
-    if (!$on) {
-        line($answer . ' is wrong answer ;(. Correct answer was ' . $correct_answer);
-        line('Let\'s try again, ' . $name . '!');
-    }
+    startEngine($rules, $questions, $answers);
+}
+
+function isEven(int $number)
+{
+    return $number % 2 == 0 ? true : false;
 }

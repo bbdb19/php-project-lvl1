@@ -5,48 +5,34 @@ use function cli\prompt;
 
 function playCalc(): void
 {
-    $name = startEngine();
-
-    $on = true;
-    $answer = '';
-    $correct_answer = '';
-    $counter = 0;
+    $rules = 'What is the result of the expression?';
     $operators = ['+', '-', '*'];
+    $questions = array();
+    $answers = array();
 
-    line('What is the result of the expression?');
-    while ($on) {
+    for ($i = 0; $i < 3; $i++) {
         $a = rand(0, 100);
         $b = rand(0, 100);
-        $o = $operators[rand(0, 100) % 3];
-        switch ($o) {
-            case '+':
-                $correct_answer = $a + $b;
-                break;
-            case '-':
-                $correct_answer = $a - $b;
-                break;
-            case '*':
-                $correct_answer = $a * $b;
-                break;
-        }
-        line('Question: ' . $a . ' ' . $o . ' ' . $b);
-        $answer = prompt('Your answer: ');
-        if ($correct_answer != $answer) {
-            $on = false;
-            break;
-        } else {
-            line('Correct!');
-            $counter++;
-        }
-
-        if ($counter === 3) {
-            line('Congratulations, ' . $name . '!');
-            break;
-        }
+        $operator = $operators[rand(0, 100) % 3];
+        array_push($questions, $a . ' ' . $operator . ' ' . $b);
+        array_push($answers, calculate($a, $b, $operator));
     }
 
-    if (!$on) {
-        line($answer . ' is wrong answer ;(. Correct answer was ' . $correct_answer);
-        line('Let\'s try again, ' . $name . '!');
+    startEngine($rules, $questions, $answers);
+}
+
+function calculate(int $a, int $b, string $operator): int
+{
+    switch ($operator) {
+        case '+':
+            $result = $a + $b;
+            break;
+        case '-':
+            $result = $a - $b;
+            break;
+        case '*':
+            $result = $a * $b;
+            break;
     }
+    return $result;
 }

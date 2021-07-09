@@ -5,53 +5,33 @@ use function cli\prompt;
 
 function playProgression(): void
 {
-    $name = startEngine();
+    $rules = 'What number is missing in the progression?';
+    $questions = array();
+    $answers = array();
 
-    $on = true;
-    $answer = '';
-    $correct_answer = '';
-    $counter = 0;
-
-    line('What number is missing in the progression?');
-    while ($on) {
-        $array = getProgressionArray();
+    for ($i = 0; $i < 3; $i++) {
+        $size = rand(5, 10);
+        $firstNumber = rand(0, 50);
+        $increment = rand(1, 10);
+        $array = getProgression($firstNumber, $increment, $size);
         $missingIndex = rand(0, count($array) - 1);
-        $correct_answer = $array[$missingIndex];
-        line('Question: ' . arrayToQuestionString($array, $missingIndex));
-        $answer = prompt('Your answer: ');
-        if ($correct_answer != $answer) {
-            $on = false;
-            break;
-        } else {
-            line('Correct!');
-            $counter++;
-        }
-
-        if ($counter === 3) {
-            line('Congratulations, ' . $name . '!');
-            break;
-        }
+        array_push($answers, $array[$missingIndex]);
+        array_push($questions, arrayToQuestion($array, $missingIndex));
     }
 
-    if (!$on) {
-        line($answer . ' is wrong answer ;(. Correct answer was ' . $correct_answer);
-        line('Let\'s try again, ' . $name . '!');
-    }
+    startEngine($rules, $questions, $answers);
 }
 
-function getProgressionArray(): array
+function getProgression(int $firstNumber, int $increment, int $size): array
 {
     $arr = [];
-    $size = rand(5, 10);
-    $firstNumber = rand(0, 50);
-    $increment = rand(1, 10);
     for ($i = 0; $i < $size; $i++) {
         $arr[$i] = $firstNumber + $i * $increment;
     }
     return $arr;
 }
 
-function arrayToQuestionString(array $arr, int $index): string
+function arrayToQuestion(array $arr, int $index): string
 {
     $str = '';
     for ($i = 0; $i < count($arr); $i++) {
