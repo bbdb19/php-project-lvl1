@@ -23,6 +23,7 @@ function playCalc(): void
 
 function calculate(int $a, int $b, string $operator): int
 {
+    $result = 0;
     switch ($operator) {
         case '+':
             $result = $a + $b;

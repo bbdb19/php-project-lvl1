@@ -18,7 +18,7 @@ function playEven(): void
     startEngine($rules, $questions, $answers);
 }
 
-function isEven(int $number)
+function isEven(int $number): bool
 {
     return $number % 2 == 0 ? true : false;
 }
