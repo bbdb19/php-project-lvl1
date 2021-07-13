@@ -3,9 +3,10 @@
 use function cli\line;
 use function cli\prompt;
 
+const RULES_PROGRESSION = 'What number is missing in the progression?';
+
 function playProgression(): void
 {
-    $rules = 'What number is missing in the progression?';
     $questions = array();
     $answers = array();
 
@@ -19,7 +20,7 @@ function playProgression(): void
         array_push($answers, strval($progression[$missingIndex]));
     }
 
-    startEngine($rules, $questions, $answers);
+    startEngine(RULES_PROGRESSION, $questions, $answers);
 }
 
 function getProgression(int $firstNumber, int $increment, int $size): array

@@ -3,9 +3,10 @@
 use function cli\line;
 use function cli\prompt;
 
+const RULES_GCD = 'Find the greatest common divisor of given numbers.';
+
 function playGcd(): void
 {
-    $rules = 'Find the greatest common divisor of given numbers.';
     $questions = array();
     $answers = array();
 
@@ -16,7 +17,7 @@ function playGcd(): void
         array_push($answers, strval(getGcd($a, $b)));
     }
 
-    startEngine($rules, $questions, $answers);
+    startEngine(RULES_GCD, $questions, $answers);
 }
 
 function getGcd(int $a, int $b): int

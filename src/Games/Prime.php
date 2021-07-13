@@ -3,9 +3,10 @@
 use function cli\line;
 use function cli\prompt;
 
+const RULES_PRIME = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+
 function playPrime(): void
 {
-    $rules = 'Answer "yes" if given number is prime. Otherwise answer "no".';
     $questions = array();
     $answers = array();
 
@@ -15,7 +16,7 @@ function playPrime(): void
         array_push($answers, isPrime($number) ? "yes" : "no");
     }
 
-    startEngine($rules, $questions, $answers);
+    startEngine(RULES_PRIME, $questions, $answers);
 }
 
 function isPrime(int $number): bool

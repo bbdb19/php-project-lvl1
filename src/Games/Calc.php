@@ -3,9 +3,10 @@
 use function cli\line;
 use function cli\prompt;
 
+const RULES_CALC = 'What is the result of the expression?';
+
 function playCalc(): void
 {
-    $rules = 'What is the result of the expression?';
     $operators = ['+', '-', '*'];
     $questions = array();
     $answers = array();
@@ -18,7 +19,7 @@ function playCalc(): void
         array_push($answers, strval(calculate($a, $b, $operator)));
     }
 
-    startEngine($rules, $questions, $answers);
+    startEngine(RULES_CALC, $questions, $answers);
 }
 
 function calculate(int $a, int $b, string $operator): ?int

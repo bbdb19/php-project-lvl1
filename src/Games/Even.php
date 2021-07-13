@@ -3,9 +3,10 @@
 use function cli\line;
 use function cli\prompt;
 
+const RULES_EVEN = 'Answer "yes" if the number is even, otherwise answer "no".';
+
 function playEven(): void
 {
-    $rules = 'Answer "yes" if the number is even, otherwise answer "no".';
     $questions = array();
     $answers = array();
 
@@ -15,7 +16,7 @@ function playEven(): void
         array_push($answers, isEven($question) ? "yes" : "no");
     }
 
-    startEngine($rules, $questions, $answers);
+    startEngine(RULES_EVEN, $questions, $answers);
 }
 
 function isEven(int $number): bool
