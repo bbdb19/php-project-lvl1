@@ -34,5 +34,5 @@ function getProgression(int $firstNumber, int $increment, int $size): array
 function progressionToQuestion(array $progression, int $index): string
 {
     $progression[$index] = '..';
-    return implode(' ', $arr);
+    return implode(' ', $progression);
 }
