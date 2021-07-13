@@ -21,7 +21,7 @@ function playCalc(): void
     startEngine($rules, $questions, $answers);
 }
 
-function calculate(int $a, int $b, string $operator)
+function calculate(int $a, int $b, string $operator): mixed
 {
     switch ($operator) {
         case '+':
