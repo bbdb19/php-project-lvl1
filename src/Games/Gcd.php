@@ -9,11 +9,11 @@ function playGcd(): void
     $questions = array();
     $answers = array();
 
-    for ($i = 0; $i < 3; $i++) {
+    for ($i = 0; $i < ROUND_COUNT; $i++) {
         $a = rand(0, 100);
         $b = rand(0, 100);
         array_push($questions, $a . ' ' . $b);
-        array_push($answers, getGcd($a, $b));
+        array_push($answers, strval(getGcd($a, $b)));
     }
 
     startEngine($rules, $questions, $answers);
@@ -21,21 +21,15 @@ function playGcd(): void
 
 function getGcd(int $a, int $b): int
 {
-    if ($a > $b) {
-        $tmp = $a;
-        $a = $b;
-        $b = $tmp;
-    }
-
-    if ($a == 0) {
-        return $b;
-    }
+    $min = min($a, $b);
+    $max = max($a, $b);
 
     $gcd = 1;
-    for ($i = 1; $i <= $a; $i++) {
-        if ($a % $i == 0 && $b % $i == 0) {
-            $gcd = $i;
+    for ($i = $min; $i >= 1; $i--) {
+        if ($min % $i == 0 && $max % $i == 0) {
+            return $i;
         }
     }
-    return $gcd;
+
+    return $max;
 }

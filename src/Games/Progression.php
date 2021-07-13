@@ -9,14 +9,14 @@ function playProgression(): void
     $questions = array();
     $answers = array();
 
-    for ($i = 0; $i < 3; $i++) {
+    for ($i = 0; $i < ROUND_COUNT; $i++) {
         $size = rand(5, 10);
         $firstNumber = rand(0, 50);
         $increment = rand(1, 10);
-        $array = getProgression($firstNumber, $increment, $size);
-        $missingIndex = rand(0, count($array) - 1);
-        array_push($answers, $array[$missingIndex]);
-        array_push($questions, arrayToQuestion($array, $missingIndex));
+        $progression = getProgression($firstNumber, $increment, $size);
+        $missingIndex = rand(0, count($progression) - 1);
+        array_push($answers, $progression[$missingIndex]);
+        array_push($questions, progressionToQuestion($progression, $missingIndex));
     }
 
     startEngine($rules, $questions, $answers);
@@ -31,15 +31,8 @@ function getProgression(int $firstNumber, int $increment, int $size): array
     return $arr;
 }
 
-function arrayToQuestion(array $arr, int $index): string
+function progressionToQuestion(array $progression, int $index): string
 {
-    $str = '';
-    for ($i = 0; $i < count($arr); $i++) {
-        if ($i === $index) {
-            $str .= '.. ';
-        } else {
-            $str .= $arr[$i] . ' ';
-        }
-    }
-    return $str;
+    $progression[$index] = '..';
+    return implode(' ', $arr);
 }

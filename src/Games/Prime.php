@@ -9,7 +9,7 @@ function playPrime(): void
     $questions = array();
     $answers = array();
 
-    for ($i = 0; $i < 3; $i++) {
+    for ($i = 0; $i < ROUND_COUNT; $i++) {
         $number = rand(0, 100);
         array_push($questions, $number);
         array_push($answers, isPrime($number) ? "yes" : "no");

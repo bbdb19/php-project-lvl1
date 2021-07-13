@@ -9,7 +9,7 @@ function playEven(): void
     $questions = array();
     $answers = array();
 
-    for ($i = 0; $i < 3; $i++) {
+    for ($i = 0; $i < ROUND_COUNT; $i++) {
         $question = rand(0, 100);
         array_push($questions, $question);
         array_push($answers, isEven($question) ? "yes" : "no");
@@ -20,5 +20,5 @@ function playEven(): void
 
 function isEven(int $number): bool
 {
-    return $number % 2 == 0 ? true : false;
+    return $number % 2 == 0;
 }
