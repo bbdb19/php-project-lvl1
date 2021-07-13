@@ -15,7 +15,7 @@ function playCalc(): void
         $b = rand(0, 100);
         $operator = $operators[rand(0, 100) % count($operators)];
         array_push($questions, $a . ' ' . $operator . ' ' . $b);
-        array_push($answers, calculate($a, $b, $operator));
+        array_push($answers, strval(calculate($a, $b, $operator)));
     }
 
     startEngine($rules, $questions, $answers);
