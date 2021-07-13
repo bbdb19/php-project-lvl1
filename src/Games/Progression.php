@@ -15,8 +15,8 @@ function playProgression(): void
         $increment = rand(1, 10);
         $progression = getProgression($firstNumber, $increment, $size);
         $missingIndex = rand(0, count($progression) - 1);
-        array_push($answers, $progression[$missingIndex]);
         array_push($questions, progressionToQuestion($progression, $missingIndex));
+        array_push($answers, strval($progression[$missingIndex]));
     }
 
     startEngine($rules, $questions, $answers);
