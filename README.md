@@ -5,12 +5,17 @@
 
 ### Games Recordings
 
-Even - https://asciinema.org/a/ZoHqwpKZCCAm4kyFMbM38h7pA
+Even
+[![asciicast](https://asciinema.org/a/MkhV9MrroPNL6KTWb7D6kizrU.png)](https://asciinema.org/a/MkhV9MrroPNL6KTWb7D6kizrU)
 
-Calc - https://asciinema.org/a/ImmBXmB3EFEcZtAuxQH0TnZOA
+Calc
+[![asciicast](https://asciinema.org/a/39zg4fHnvgFkPgL6bUtY1x4ra.png)](https://asciinema.org/a/39zg4fHnvgFkPgL6bUtY1x4ra)
 
-Gcd  - https://asciinema.org/a/IOoU8xjaqGsYHUNjnLbMpMWJO
+Gcd
+[![asciicast](https://asciinema.org/a/rLzLSBYVqgTvzYcdmfb1GR8FC.png)](https://asciinema.org/a/rLzLSBYVqgTvzYcdmfb1GR8FC)
 
-Progression - https://asciinema.org/a/xtbe6fhzWjG9UTv9XZDaIK6Mf
+Progression
+[![asciicast](https://asciinema.org/a/D4fNI5hu2QVm6fFkAKk9A48g5.png)](https://asciinema.org/a/D4fNI5hu2QVm6fFkAKk9A48g5)
 
-Prime - https://asciinema.org/a/3IEiA7t25vBbWC12Mdv4lFNc5
+Prime
+[![asciicast](https://asciinema.org/a/CSeq9maEtYR6A1K8P4PTAdc38.png)](https://asciinema.org/a/CSeq9maEtYR6A1K8P4PTAdc38)
